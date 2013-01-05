@@ -2,17 +2,18 @@ package org.ventlam.algorithm.dviconquer;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTree {
 	
-	protected BinaryTreeNode root;
+	protected static BinaryTreeNode root;
 	public BinaryTree ()
 	{
 		root=null;
 	}
 	protected void visit (BinaryTreeNode btn)
 	{
-		System.out.println(btn.key + " ");
+		System.out.println(btn.key + "----- ");
 	}
 	public void insert (int newdata)
 	{
@@ -114,6 +115,7 @@ public class BinaryTree {
 		Queue<BinaryTreeNode> queue  = new LinkedList<BinaryTreeNode>();
 		if(p!= null)
 		{
+			 //将指定的元素插入此队列
 			queue.offer(p);
 			//queue.add(root);
 			while(!queue.isEmpty())
@@ -132,13 +134,54 @@ public class BinaryTree {
 			}
 		}
 	}
+	//递归前序深度优先遍历
+	public void deepFirstPreOrdeer(BinaryTreeNode p)
+	{
+		 //p =root;
+		//Queue<BinaryTreeNode> queue  = new LinkedList<BinaryTreeNode>();
+		if(p!=null)
+		{
+			visit(p);
+			deepFirstPreOrdeer(p.left);
+			//System.out.println("DFSPre");
+			deepFirstPreOrdeer(p.right);
+		}
+	}
+	//迭代前序深度优先遍历
+	public void iterDeeepFirsrtPre()
+	{
+		BinaryTreeNode p =root;
+		Stack<BinaryTreeNode> stack  = new Stack<BinaryTreeNode>();
+		if(p!=null)
+		{
+			stack.push(p);
+			while(!stack.isEmpty())
+			{
+				
+				p=stack.pop();
+				visit(p);
+				//LIFO
+				if(p.right!=null)
+				{
+					stack.push(p.right);
+				}
+				if(p.left!=null)
+				{
+					stack.push(p.left);
+				}
+			}
+		}
+	}
 	public static void main(String[] args)
 	{
-		int[] datas = {1,6,4,53,110,12,15,55,83,44};
+		int[] datas = {13,10,25,2,12,20,31,29};
 		BinaryTree bt = new BinaryTree();
 		bt.buildTree(datas);
 		bt.printTree();
 		//bt.search(15);
-		bt.breadthFirst();
+		//bt.breadthFirst();
+		BinaryTreeNode p = root;
+		//bt.deepFirstPreOrdeer(p);
+		bt.iterDeeepFirsrtPre();
 	}
 }
