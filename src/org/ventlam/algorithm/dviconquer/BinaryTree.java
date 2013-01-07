@@ -31,7 +31,7 @@ public class BinaryTree {
 		if (btn ==null)
 		{	
 			btn =new BinaryTreeNode(newdata);
-			}
+		}
 		//选择恰当的位置插入，从根节点开始递归
 		else
 		{
