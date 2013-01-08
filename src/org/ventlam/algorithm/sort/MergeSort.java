@@ -16,43 +16,43 @@ public class MergeSort {
 			  print(data);
 		  }
 	  }
-  private void merge(int[] data ,int first ,int mid,int last)
-  {
-	  int i,j,k;
-	  int n1=mid-first+1;
-	  int n2=last-mid;
-	  int[] Ldata =new int[n1+1] ;
-	  //System.out.println(Ldata.length);
-	  int[] Rdata = new int[n2+1] ;
-	  //复制数据，并添加哨兵牌
-	  for(i=0;i<n1;i++)
+	  private void merge(int[] data ,int first ,int mid,int last)
+	  {
+		  int i,j,k;
+		  int n1=mid-first+1;
+		  int n2=last-mid;
+		  int[] Ldata =new int[n1+1] ;
+		  //System.out.println(Ldata.length);
+		  int[] Rdata = new int[n2+1] ;
+		  //复制数据，并添加哨兵牌
+		  for(i=0;i<n1;i++)
 	  {
 		  Ldata[i]=data[first+i];
 		 
 	  }
-	  Ldata[i]=Integer.MAX_VALUE;
-	 // print(Ldata);
-	  for(i=0;i<n2;i++)
-	  {
-		 Rdata[i]=data[mid+i+1];
-	  }
-	  Rdata[i]=Integer.MAX_VALUE;
+		  Ldata[i]=Integer.MAX_VALUE;
+		  // print(Ldata);
+		  for(i=0;i<n2;i++)
+		  {
+			  Rdata[i]=data[mid+i+1];
+		  }
+		  Rdata[i]=Integer.MAX_VALUE;
 	 
-	 // print(Rdata);
-	  i=j=0;
+		  // print(Rdata);
+		  i=j=0;
 	  
-		for(k=first;k<=last;k++)
-		{
-			if(Ldata[i]<= Rdata[j])
-			{
-				data[k]=Ldata[i++];
-				//i++;
-			}
-			else 
-			{
-				data[k]=Rdata[j++];
-				//j++;
-			}
+		  for(k=first;k<=last;k++)
+		  {
+			  if(Ldata[i]<= Rdata[j])
+			  {
+				  data[k]=Ldata[i++];
+				  //i++;
+			  }
+			  else 
+			  {
+				  data[k]=Rdata[j++];
+				  //j++;
+			  }
 		}	
 	
 	 // print(data);
@@ -73,11 +73,11 @@ public class MergeSort {
 			 if (data[il] <= data[ir])
 			   {
 				 temp[i++] =data[il++];
-				print(temp);
+				 print(temp);
 				}
 		   else 
 			   {
-			   temp[i++]=data[ir++];
+			   	temp[i++]=data[ir++];
 				print(temp);
 				}
 		 }
