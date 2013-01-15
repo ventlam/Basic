@@ -33,4 +33,9 @@ public class Fibonacci {
 	     return (long) ((Math.pow(x, n) - Math.pow(y, n))/z + 0.5);
 		
 	}
+	public static void main(String[] args)
+	{
+		Fibonacci fc = new Fibonacci();
+		System.out.println(fc.formulateFin(12));
+	}
 }
