@@ -73,18 +73,17 @@ public class HuffmanTree implements Comparable<HuffmanTree>{
 			while (HuffmanTrees.size() > 1)  
 		{
 				sort(HuffmanTrees);  
-	            //获取权值最小的两个节点  
+	            //get min frequency   tree
 				HuffmanTree left = HuffmanTrees.get(HuffmanTrees.size() - 1);  
 				HuffmanTree right = HuffmanTrees.get(HuffmanTrees.size() - 2);  
-	            //生成新节点，新节点的权值为两个子节点的权值之和  
-				HuffmanTree parent = new HuffmanTree(null , left.frequency + right.frequency);  
-	            //让新节点作为权值最小的两个节点的父节点  
+	            //combine a new tree   
+				HuffmanTree parent = new HuffmanTree(null , left.frequency + right.frequency);    
 	            parent.left = left;  
 	            parent.right = right;  
-	            //删除权值最小的两个节点  
+	            //remove child tree node
 	            HuffmanTrees.remove(HuffmanTrees.size() - 1);  
 	            HuffmanTrees.remove(HuffmanTrees.size() - 1);  
-	            //将新生成的父节点添加到集合中  
+	            //add new tree 
 	            HuffmanTrees.add(parent);  
 		}
 		
