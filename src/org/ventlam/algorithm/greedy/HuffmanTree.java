@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.PriorityQueue;
 
 public class HuffmanTree implements Comparable<HuffmanTree>{
 	/*
@@ -16,12 +17,12 @@ public class HuffmanTree implements Comparable<HuffmanTree>{
 	public HuffmanTree left;
 	public HuffmanTree right;
 	public double frequency;
-	/** Create non-null leaf node **/
+	/** Create a leaf node with the specified value and frequency. **/
 	public HuffmanTree(Character invalue,double freq)
 	{
 		this(invalue,freq,null,null);
 	}
-	/**Create null leaf node**/
+	/**Constructed a non-value  0-frequency leaf node**/
 	public HuffmanTree()
 	{
 		this(null,0.0);
@@ -34,6 +35,8 @@ public class HuffmanTree implements Comparable<HuffmanTree>{
 		this.left=left;
 		this.right=right;
 	}
+	
+	
 		private static HashMap<Character, Integer> charCount(String codestring)
 		{
 			HashMap<Character,Integer> hashmap = new HashMap<Character,Integer>();
@@ -48,18 +51,15 @@ public class HuffmanTree implements Comparable<HuffmanTree>{
 			}
 			return hashmap;
 		}
-		public void arraylistHuffman()
+		/*
+		 * Build Tree from Frequency Table
+		 * @param freq The occur time of specified char
+		 * @return a Huffman tree containing the characters' prefix codes 
+		 */
+		public static HuffmanTree bulidTree(double[] freq)
 		{
-			ArrayList al = new ArrayList();
-			HashMap<Character, Integer> hm =charCount("fuckyouyou");
-			 Collection<Integer> c = hm.values();
-			
-			Iterator it =c.iterator();
-			while(it.hasNext())
-			{
-				al.add(it.next());
-			}
-			
+			PriorityQueue<HuffmanTree> huffq = new PriorityQueue<HuffmanTree>();
+			return huffq.peek();
 		}
 		@Override
 		public int compareTo(HuffmanTree arg0) {
@@ -67,3 +67,16 @@ public class HuffmanTree implements Comparable<HuffmanTree>{
 			return 0;
 		}
 }
+/*public void arraylistHuffman()
+{
+	ArrayList al = new ArrayList();
+	HashMap<Character, Integer> hm =charCount("fuckyouyou");
+	 Collection<Integer> c = hm.values();
+	
+	Iterator it =c.iterator();
+	while(it.hasNext())
+	{
+		al.add(it.next());
+	}
+	
+}*/
