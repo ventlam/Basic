@@ -11,6 +11,7 @@ package org.ventlam.langs.thread;
 public class MutileThreads extends Thread{
 	/*
 	 * Thread 实现多线程
+	 * 结果不可预期 ，why？
 	 */
 	private String name;
 	public MutileThreads(String name)
@@ -21,7 +22,7 @@ public class MutileThreads extends Thread{
 	{
 		for(int i=0;i<5;i++)
 		{
-			  for(long k= 0; k <100000000;k++); 
+			 // for(long k= 0; k <100000000;k++); //延时
 	            System.out.println(this.getName()+" :"+i); 
 		}
 	}
